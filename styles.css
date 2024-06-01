@@ -1,0 +1,38 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    gap:30px;
+}
+.tituloCategoria, .readMore {
+    display: flex;
+    justify-content: center;
+}
+.datosCategoria{
+    width: 40%;
+}
+
+.categoria, .libro{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding:10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    gap:15px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+.cargando{
+    margin-top: 50%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+frame{
+    font-size: 20px;
+}
