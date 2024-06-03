@@ -28,6 +28,7 @@ const traerCategorias = async () => {
         return error
     }
 }
+
 let listaCategorias = async()=>{
 main.innerHTML ="";
 main.append(divCargando);
@@ -44,16 +45,20 @@ setTimeout(async()=>
             const divDatos = document.createElement("div");
             const divReadMore = document.createElement("div");
             const botonReadMore = document.createElement("button");
+
             divCategoria.classList = 'categoria'
             divTitulo.classList = 'tituloCategoria'
             divDatos.classList = 'datosCategoria'
             divReadMore.classList = 'readMore'
             divTitulo.textContent = element.display_name
-            divDatos.innerHTML = `<p>Oldest: ${element.oldest_published_date}</p><p>Newest: ${element.newest_published_date}</p><p>Update: ${element.updated}</p>`
+            divDatos.innerHTML = `<p>Oldest: ${element.oldest_published_date}</p>
+            <p>Newest: ${element.newest_published_date}</p>
+            <p>Update: ${element.updated}</p>`
             botonReadMore.setAttribute("type", "button");
             botonReadMore.textContent = "Read More!"
             botonReadMore.classList = "botonReadMore"
             botonReadMore.id = `${listName}`
+
             divReadMore.append(botonReadMore);
             divCategoria.append(divTitulo);
             divCategoria.append(divDatos);
@@ -78,6 +83,7 @@ const traerLibros = async (categoria1) => {
         alert(error)
     }
 }
+
 const pintarLibros = async (categoria) => {
     main.innerHTML = "";
     main.append(divCargando);
