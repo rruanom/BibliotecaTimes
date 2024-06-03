@@ -233,4 +233,8 @@ img {
     .letrero{
         width: 60%;
     }
+
+    .libro{
+        height: 580px;
+    }
 }
