@@ -1,38 +1,218 @@
-.container{
-    display:flex;
-    flex-direction: column;
-    gap:30px;
-}
-.tituloCategoria, .readMore {
-    display: flex;
-    justify-content: center;
-}
-.datosCategoria{
-    width: 40%;
+*{
+    box-sizing: content-box;
 }
 
-.categoria, .libro{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding:10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    gap:15px;
+body {
+    padding-top: 40%;
+}
+
+main{
+    font-family:'Courier New', Courier, monospace;
+}
+
+h1{
+    color:white;
+    font-size: 64px;
+    height:auto;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 img {
     width: 100%;
     height: 100%;
 }
-.cargando{
+
+#volver{
+    height: 25px;
+    background-color: black;
+    color: white;
+    font-size: 17px;
+}
+
+.header {
+    position: fixed;
+    top:0%;
+    width: 92%;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border-bottom: 1px solid black;
+    padding-left: 20px;
+}
+
+.encabezado {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.portadaCategoria{
+    margin-top: 0;
+    font-size: 1.3lh;
+    overflow: hidden;
+}
+
+
+.botonReadMore{
+    width: 120px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    font-size: 17px;
+    font-family: "Anton", sans-serif;
+}
+
+.letrero{
+    height: 55px;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: right;
+    width: 90%;
+    background-color: black;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+.container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 50px;
+}
+
+.tituloCategoria,
+.readMore {
+    display: flex;
+    justify-content: center;
+}
+
+.datosCategoria {
+    width: 60%;
+    font-size: 1lh
+}
+
+.tituloCategoria {
+    font-size: 30px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-weight: bold; 
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+.tituloLibro{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.botonVolver{
+    height: 30px;
+    position: fixed;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    width: 40%;
+}
+
+.categoria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px rgba(0.5, 0.5, 0.5, 0.5);
+    gap: 15px;
+    width: 75%;
+}
+
+.libro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    width: 90%;
+}
+
+
+
+.cargando {
     margin-top: 50%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-frame{
-    font-size: 20px;
+
+@media only screen and (min-width: 700px) {
+    body {
+        padding-top: 25%;
+    }
+
+    .container{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container1 {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-top:10%;
+    }
+
+    .categoria{
+        width: 40%;
+        font-size: 12px;
+    }
+
+    .cargando{
+        margin-top: 20%;
+    }
+
+    .libro{
+        width: 40%;
+        height: 700px;
+        font-size: 12px;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+
+    .tituloLibro{
+        font-size: 15px;
+    }
+
+    .weeks, .description {
+        font-size: medium;
+    }
+
+    .botonVolver{
+        padding-left: 37px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    
 }

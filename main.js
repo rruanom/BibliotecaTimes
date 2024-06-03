@@ -2,12 +2,13 @@ const fragment = document.createDocumentFragment()
 const main = document.querySelector('main');
 const divCargando = document.createElement("div");
 divCargando.classList="cargando";
-divCargando.innerHTML = '<div style="width:100%;height:0;padding-bottom:84%;position:relative;"><iframe src="https://giphy.com/embed/iheTB65YtlVZ0PJXFU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/Friends-friends-episode-14-tv-iheTB65YtlVZ0PJXFU">via GIPHY</a></p>'
+divCargando.innerHTML = '<div style="width:100%;height:0;padding-bottom:84%;position:relative;"><iframe src="https://giphy.com/embed/iheTB65YtlVZ0PJXFU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/Friends-friends-episode-14-tv-iheTB65YtlVZ0PJXFU"></a></p>'
+
 document.addEventListener('click', (event) => {
     if (event.target.innerText == "Read More!") {
         const indiceCategoria = event.target.id
         pintarLibros(indiceCategoria)
-    } else if (event.target.innerText == "VOLVER") {
+    } else if (event.target.innerText == "BACK TO INDEX") {
         listaCategorias();
     } else if (event.target.innerText == "BUY AT AMAZON"){
         window.open(event.target.id, '_blank');
@@ -28,7 +29,9 @@ const traerCategorias = async () => {
     }
 }
 let listaCategorias = async()=>{
-main.append(divCargando)
+main.innerHTML ="";
+main.append(divCargando);
+document.querySelector(".portadaCategoria") && document.querySelector(".portadaCategoria").remove()
 setTimeout(async()=>
     {const resp = await traerCategorias()
         main.innerHTML = ""
@@ -36,8 +39,8 @@ setTimeout(async()=>
         container.classList = "container";
         resp.forEach((element) => {
             const listName = element.list_name_encoded;
-            const divCategoria = document.createElement("div");
-            const divTitulo = document.createElement("div");
+            const divCategoria = document.createElement("article");
+            const divTitulo = document.createElement("h3");
             const divDatos = document.createElement("div");
             const divReadMore = document.createElement("div");
             const botonReadMore = document.createElement("button");
@@ -49,6 +52,7 @@ setTimeout(async()=>
             divDatos.innerHTML = `<p>Oldest: ${element.oldest_published_date}</p><p>Newest: ${element.newest_published_date}</p><p>Update: ${element.updated}</p>`
             botonReadMore.setAttribute("type", "button");
             botonReadMore.textContent = "Read More!"
+            botonReadMore.classList = "botonReadMore"
             botonReadMore.id = `${listName}`
             divReadMore.append(botonReadMore);
             divCategoria.append(divTitulo);
@@ -66,7 +70,7 @@ const traerLibros = async (categoria1) => {
         const respuesta = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${categoria1}.json?api-key=2KGgtZps9ppvRaQucc9uRZqmGxz7GkPZ`)
         if (respuesta.ok) {
             const datos = await respuesta.json();
-            return datos.results.books
+            return datos.results
         } else {
             throw 'no se han encontrado los libros de esta categoria'
         }
@@ -75,19 +79,25 @@ const traerLibros = async (categoria1) => {
     }
 }
 const pintarLibros = async (categoria) => {
+    main.innerHTML = "";
     main.append(divCargando);
-    const listaLibros = await traerLibros(categoria);
-    console.log(listaLibros)
+    const header = document.querySelector('.header')
+    const data = await traerLibros(categoria);
+    const listaLibros = data.books;
     main.innerHTML = "";
     const secbotonVolver = document.createElement("section");
     secbotonVolver.classList = "botonVolver";
     const botonVolver = document.createElement("button");
-    botonVolver.textContent = "VOLVER";
+    botonVolver.textContent = "BACK TO INDEX";
     botonVolver.id = `volver`;
     secbotonVolver.append(botonVolver);
     const secListaLibros = document.createElement("section");
-    secListaLibros.classList = "container";
-
+    secListaLibros.classList = "container1";
+    const portadaCategoría = document.createElement("p")
+    portadaCategoría.classList = "portadaCategoria"
+    portadaCategoría.textContent = `${data.list_name}`
+    header.append(portadaCategoría);
+    
     listaLibros.forEach(libro => {
 
         const artLibro = document.createElement("art");
@@ -117,13 +127,14 @@ const pintarLibros = async (categoria) => {
         divImagen.append(imagen);
         divBottonBuy.append(botonBuy);
 
-        fragment.append(divNombre);
-        fragment.append(divImagen);
-        fragment.append(divWeeks);
-        fragment.append(divDescription);
-        fragment.append(divBottonBuy);
+        artLibro.append(divNombre);
+        artLibro.append(divImagen);
+        artLibro.append(divWeeks);
+        artLibro.append(divDescription);
+        artLibro.append(divBottonBuy);
+
+        secListaLibros.append(artLibro)
     })
-    secListaLibros.append(fragment);
     main.append(secbotonVolver)
     main.append(secListaLibros);
 }
