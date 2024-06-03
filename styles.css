@@ -221,6 +221,10 @@ img {
         padding-top: 20%;
     }
 
+    .header{
+        width: 100%;
+    }
+
     .categoria, .libro{
         width: 20%;
         font-size: 12px;
