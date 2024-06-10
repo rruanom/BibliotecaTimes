@@ -1,22 +1,20 @@
+
 *{
     box-sizing: content-box;
 }
 
-body {
-    padding-top: 40%;
-}
-
 main{
     font-family:'Courier New', Courier, monospace;
+    padding-top: 200px;
 }
 
 h1{
     color:white;
-    font-size: 64px;
+    font-size: 40px;
     height:auto;
     width: 100%;
-    margin-top: 20px;
     margin-bottom: 20px;
+    margin-top: 0;
 }
 
 img {
@@ -31,6 +29,20 @@ img {
     font-size: 17px;
 }
 
+.filtros {
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap:10px;
+}
+
+.barraSuperior{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;;
+}
+
 .header {
     position: fixed;
     top:0%;
@@ -42,6 +54,11 @@ img {
     height: auto;
     border-bottom: 1px solid black;
     padding-left: 20px;
+}
+
+.logIn{
+    height: 50px;
+    width: 50px;
 }
 
 .encabezado {
@@ -66,16 +83,26 @@ img {
 }
 
 .letrero{
-    height: 55px;
+    height: 50px;
     font-family: "Anton", sans-serif;
     font-weight: 400;
     font-style: normal;
     text-align: right;
-    width: 90%;
+    width: 50vw;
     background-color: black;
     margin-top: 0;
+    padding-top:0;
     margin-bottom: 20px;
     line-height: 100%;
+    display: flex;
+    align-items: end;
+}
+
+.auth{
+    margin-right: 30px;
+    margin-top:20px;
+    display: flex;
+    align-items: center;
 }
 
 .container {
