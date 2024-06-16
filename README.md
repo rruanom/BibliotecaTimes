@@ -19,4 +19,6 @@ Ademas de la informacion del libro, tendremos un boton que nos lleva directament
 Dentro de la aplicación, tenemos implementado un modulo de autenticación ligado a [FIREBASE](https://firebase.google.com), la platafoma de almacenamiento gratuita de Google.
 En esta aplicacion contamos con una base de datos, un sistema de autenticacion y una cloudbase para la imagenes.
 
-![ejemplo_firebase](./assets/ejemplo_firebase.png)
+![ejemplo_firebase](./assets/Biblioteca_login.png)
+
+Para entrar en esta funcionalidad debemos clicar en el icono de perfil en la esquina superior derecha de la pantalla. 
