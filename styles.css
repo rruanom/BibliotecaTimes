@@ -5,7 +5,7 @@
 
 main{
     font-family:'Courier New', Courier, monospace;
-    padding-top: 200px;
+    padding-top: 220px;
 }
 
 h1{
@@ -46,6 +46,7 @@ img {
 .header {
     position: fixed;
     top:0%;
+    right: 21px;
     width: 92%;
     background-color: white;
     z-index: 1000;
@@ -53,7 +54,7 @@ img {
     flex-direction: column;
     height: auto;
     border-bottom: 1px solid black;
-    padding-left: 20px;
+    padding-bottom: 20px;
 }
 
 .logIn{
@@ -67,7 +68,8 @@ img {
 }
 
 .portadaCategoria{
-    margin-top: 0;
+    margin: 0;
+    margin-top:10px;
     font-size: 1.3lh;
     overflow: hidden;
 }
@@ -88,10 +90,11 @@ img {
     font-weight: 400;
     font-style: normal;
     text-align: right;
-    width: 50vw;
+    width: 60vw;
     background-color: black;
     margin-top: 0;
     padding-top:0;
+    padding-right: 10px;
     margin-bottom: 20px;
     line-height: 100%;
     display: flex;
@@ -130,8 +133,9 @@ img {
 }
 
 .datosCategoria {
-    width: 60%;
-    font-size: 1lh
+    width: 80%;
+    font-size: 15px;
+    text-align: center;
 }
 
 .tituloCategoria {
@@ -193,8 +197,12 @@ img {
 }
 
 @media only screen and (min-width: 700px) {
+    header{
+        width: 100%;
+    }
+
     body {
-        padding-top: 25%;
+        padding-top: 10%%;
     }
 
     .container{
@@ -223,7 +231,7 @@ img {
 
     .libro{
         width: 40%;
-        height: 700px;
+        height: 730px;
         font-size: 12px;
         display:flex;
         flex-direction: column;
@@ -244,12 +252,14 @@ img {
     }
 }
 @media only screen and (min-width: 1000px) {
+
     body {
-        padding-top: 20%;
+        padding-top: 20px;
     }
 
     .header{
-        width: 100%;
+        width: 95%;
+        right: 30px;
     }
 
     .categoria, .libro{
@@ -257,11 +267,33 @@ img {
         font-size: 12px;
     }
 
+    .categoria{
+        height: 370px;
+        justify-content: space-around;
+    }
+
     .letrero{
         width: 60%;
+        padding:0;
     }
 
     .libro{
-        height: 580px;
+        height: 800px;
+    }
+
+    p{
+        font-size: 16px;
+    }
+
+    .container1{
+        padding-top: 80px;
+    }
+
+    .Logo{
+        width: 70vw;
+    }
+
+    .barraSuperior{
+        padding: 0;
     }
 }
